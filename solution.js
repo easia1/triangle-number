@@ -17,27 +17,19 @@ function triangleNo(divisorNo) {
     while (startLoop) {
         // triangle number
         let triNo = (n * (n + 1)) / 2;
-
         let divisorCount = 0;
 
         for (let i = 1; i <= Math.sqrt(triNo); i++) {
             if (i === Math.sqrt(triNo)) {
-                divisorCount++; // if perfect square, count only 1 factor
+                divisorCount++; // if perfect square, count only 1
             } else if (triNo % i === 0) {
-                divisorCount += 2; // there's a corresponding "pair" factor that's higher than the square root of the triangle number
+                divisorCount += 2; // include corresponding pair factor
             }
         }
 
         if (divisorCount > divisorNo) {
             console.log('Answer is: ' + triNo);
             startLoop = false; // stop the while loop
-        } else {
-            console.log(
-                'Current triangle number: ' +
-                    triNo +
-                    ', # of divisors: ' +
-                    divisorCount
-            );
         }
 
         n++;
